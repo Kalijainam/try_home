@@ -1,0 +1,29 @@
+# Initialize git repository
+git init
+
+# Create first commit
+echo "first" > file.txt
+git add .
+git commit -m "Commit 1"
+
+# Create second commit
+echo "second" >> file.txt
+git add .
+git commit -m "Commit 2"
+
+# Create third commit
+echo "third" >> file.txt
+git add .
+git commit -m "Commit 3"
+
+# Show commit history
+git log --oneline
+
+# Roll back to first commit
+git reset --hard HEAD~2
+
+# Verify rollback
+git log --oneline
+
+# If already pushed to GitHub
+git push --force
