@@ -284,3 +284,4 @@ git cherry-pick abc1234
 
 That's the full toolkit. Master the first four categories first — that's 90% of daily Git work. Rebase and cherry-pick come later when you're comfortable.
 
+git config --global user.email "your_email@example.com"
