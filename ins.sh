@@ -9,8 +9,8 @@ if ! command -v apt >/dev/null 2>&1; then
 fi
 
 # Install dependencies
-sudo apt update
-sudo apt install -y python3 python3-pip
+apt update
+apt install -y python3 python3-pip
 
 # Install Python packages
 pip3 install --upgrade requests --break-system-packages 2>/dev/null || pip3 install --upgrade requests
@@ -32,7 +32,7 @@ fi
 export GROQ_API_KEY="$APIKEY"
 
 # Create grok command
-sudo tee /usr/local/bin/grok > /dev/null << 'EOF'
+tee /usr/local/bin/grok > /dev/null << 'EOF'
 #!/usr/bin/env python3
 
 import requests
@@ -163,7 +163,7 @@ if __name__ == "__main__":
         interactive_mode()
 EOF
 
-sudo chmod +x /usr/local/bin/grok
+chmod +x /usr/local/bin/grok
 
 echo ""
 echo "==========================================="
