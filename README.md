@@ -1,299 +1,442 @@
-====================================================
-GIT COMMANDS CHEAT SHEET (WINDOWS CMD)
-====================================================
+# Git Commands Cheat Sheet (Windows CMD)
 
----------------------------
-1. INITIAL SETUP
----------------------------
+## 1. Initial Setup
 
-Check Git Version:
+### Check Git Version
+```cmd
 git --version
+```
 
-Set Username:
+### Set Username
+```cmd
 git config --global user.name "Your Name"
+```
 
-Set Email:
+### Set Email
+```cmd
 git config --global user.email "your@email.com"
+```
 
-View Configuration:
+### View Configuration
+```cmd
 git config --list
+```
 
----------------------------
-2. CREATE REPOSITORY
----------------------------
+---
 
-Initialize Git:
+# 2. Create Repository
+
+### Initialize Git
+```cmd
 git init
+```
 
-Clone Existing Repository:
+### Clone Repository
+```cmd
 git clone <repository-url>
+```
 
 Example:
+```cmd
 git clone https://github.com/user/repo.git
+```
 
----------------------------
-3. CHECK STATUS
----------------------------
+---
 
-Check Repository Status:
+# 3. Check Status
+
+### Repository Status
+```cmd
 git status
+```
 
-View Commit History:
+### Commit History
+```cmd
 git log
+```
 
-Compact Log:
+### Compact Log
+```cmd
 git log --oneline
+```
 
-Graph View:
+### Graph View
+```cmd
 git log --oneline --graph --all
+```
 
----------------------------
-4. ADD FILES
----------------------------
+---
 
-Add Specific File:
+# 4. Add Files
+
+### Add Specific File
+```cmd
 git add filename.txt
+```
 
-Add Multiple Files:
+### Add Multiple Files
+```cmd
 git add file1.txt file2.txt
+```
 
-Add All Files:
+### Add All Files
+```cmd
 git add .
+```
 
----------------------------
-5. COMMIT CHANGES
----------------------------
+---
 
-Commit Changes:
+# 5. Commit Changes
+
+### Commit
+```cmd
 git commit -m "Commit message"
+```
 
-Add and Commit Tracked Files:
+### Add and Commit Tracked Files
+```cmd
 git commit -am "Commit message"
+```
 
----------------------------
-6. REMOTE REPOSITORY
----------------------------
+---
 
-Add Remote:
+# 6. Remote Repository
+
+### Add Remote
+```cmd
 git remote add origin <repository-url>
+```
 
-View Remote:
+### View Remotes
+```cmd
 git remote -v
+```
 
-Change Remote URL:
+### Change Remote URL
+```cmd
 git remote set-url origin <new-url>
+```
 
-Remove Remote:
+### Remove Remote
+```cmd
 git remote remove origin
+```
 
----------------------------
-7. PUSH CHANGES
----------------------------
+---
 
-First Push:
+# 7. Push Changes
+
+### First Push
+```cmd
 git push -u origin main
+```
 
-Push Changes:
+### Push Changes
+```cmd
 git push
+```
 
-Push Specific Branch:
+### Push Specific Branch
+```cmd
 git push origin branch-name
+```
 
-Force Push:
+### Force Push
+```cmd
 git push --force
+```
 
----------------------------
-8. PULL CHANGES
----------------------------
+---
 
-Pull Latest Changes:
+# 8. Pull Changes
+
+### Pull Latest Changes
+```cmd
 git pull
+```
 
-Pull Specific Branch:
+### Pull Specific Branch
+```cmd
 git pull origin main
+```
 
-Fetch Without Merge:
+### Fetch Without Merge
+```cmd
 git fetch
+```
 
----------------------------
-9. BRANCH COMMANDS
----------------------------
+---
 
-View Branches:
+# 9. Branch Commands
+
+### View Local Branches
+```cmd
 git branch
+```
 
-View Remote Branches:
+### View Remote Branches
+```cmd
 git branch -r
+```
 
-View All Branches:
+### View All Branches
+```cmd
 git branch -a
+```
 
-Create Branch:
+### Create Branch
+```cmd
 git branch branch-name
+```
 
-Switch Branch:
+### Switch Branch
+```cmd
 git checkout branch-name
+```
 
-Create and Switch:
+### Create and Switch
+```cmd
 git checkout -b branch-name
+```
 
-(New Method)
+### Modern Switch Command
+```cmd
 git switch branch-name
+```
 
-Create and Switch:
+### Create and Switch
+```cmd
 git switch -c branch-name
+```
 
-Rename Branch:
+### Rename Branch
+```cmd
 git branch -m new-branch-name
+```
 
-Delete Branch:
+### Delete Branch
+```cmd
 git branch -d branch-name
+```
 
-Force Delete Branch:
+### Force Delete Branch
+```cmd
 git branch -D branch-name
+```
 
----------------------------
-10. MERGE BRANCHES
----------------------------
+---
 
-Switch to Target Branch:
+# 10. Merge Branches
+
+### Switch to Main Branch
+```cmd
 git checkout main
+```
 
-Merge Branch:
+### Merge Branch
+```cmd
 git merge branch-name
+```
 
-Abort Merge:
+### Abort Merge
+```cmd
 git merge --abort
+```
 
----------------------------
-11. STASH
----------------------------
+---
 
-Save Changes:
+# 11. Stash Commands
+
+### Save Changes
+```cmd
 git stash
+```
 
-View Stashes:
+### View Stashes
+```cmd
 git stash list
+```
 
-Apply Latest Stash:
+### Apply Latest Stash
+```cmd
 git stash apply
+```
 
-Apply and Remove:
+### Apply and Remove
+```cmd
 git stash pop
+```
 
-Delete Stash:
+### Delete Stash
+```cmd
 git stash drop
+```
 
----------------------------
-12. UNDO CHANGES
----------------------------
+---
 
-Discard Changes in File:
-git checkout -- filename.txt
+# 12. Undo Changes
 
-Restore File:
+### Discard File Changes
+```cmd
 git restore filename.txt
+```
 
-Restore All Files:
+### Restore All Files
+```cmd
 git restore .
+```
 
-Unstage File:
+### Unstage File
+```cmd
 git restore --staged filename.txt
+```
 
-Reset Last Commit (Keep Changes):
+### Undo Last Commit (Keep Changes)
+```cmd
 git reset --soft HEAD~1
+```
 
-Reset Last Commit (Delete Changes):
+### Undo Last Commit (Delete Changes)
+```cmd
 git reset --hard HEAD~1
+```
 
----------------------------
-13. TAGS
----------------------------
+---
 
-Create Tag:
+# 13. Tags
+
+### Create Tag
+```cmd
 git tag v1.0
+```
 
-List Tags:
+### View Tags
+```cmd
 git tag
+```
 
-Push Tag:
+### Push Tag
+```cmd
 git push origin v1.0
+```
 
-Push All Tags:
+### Push All Tags
+```cmd
 git push --tags
+```
 
----------------------------
-14. DELETE REMOTE BRANCH
----------------------------
+---
 
+# 14. Delete Remote Branch
+
+```cmd
 git push origin --delete branch-name
+```
 
----------------------------
-15. VIEW DIFFERENCES
----------------------------
+---
 
-View Changes:
+# 15. View Differences
+
+### Current Changes
+```cmd
 git diff
+```
 
-View Staged Changes:
+### Staged Changes
+```cmd
 git diff --staged
+```
 
-Compare Branches:
+### Compare Branches
+```cmd
 git diff branch1..branch2
+```
 
----------------------------
-16. CLEAN UNTRACKED FILES
----------------------------
+---
 
-Preview:
+# 16. Clean Untracked Files
+
+### Preview
+```cmd
 git clean -n
+```
 
-Delete Files:
+### Delete Untracked Files
+```cmd
 git clean -f
+```
 
-Delete Files and Folders:
+### Delete Untracked Files and Folders
+```cmd
 git clean -fd
+```
 
----------------------------
-17. COMMON WORKFLOW
----------------------------
+---
 
-1. Pull latest code
+# 17. Common Workflow
+
+## Pull Latest Code
+```cmd
 git pull origin main
+```
 
-2. Create branch
+## Create Feature Branch
+```cmd
 git checkout -b feature-login
+```
 
-3. Make changes
-
-4. Add files
+## Add Files
+```cmd
 git add .
+```
 
-5. Commit
+## Commit Changes
+```cmd
 git commit -m "Added login feature"
+```
 
-6. Push branch
+## Push Branch
+```cmd
 git push -u origin feature-login
+```
 
-7. Merge after approval
+## Merge Branch
+```cmd
 git checkout main
 git pull
 git merge feature-login
+```
 
-8. Push merged code
+## Push Merged Code
+```cmd
 git push origin main
+```
 
----------------------------
-18. GITHUB FIRST TIME PUSH
----------------------------
+---
 
+# 18. First-Time GitHub Push
+
+```cmd
 git init
 git add .
 git commit -m "Initial commit"
 git branch -M main
 git remote add origin <repository-url>
 git push -u origin main
+```
 
-====================================================
-END OF GIT CHEAT SHEET
-====================================================
+---
+
+# Quick Daily Commands
+
+```cmd
+git status
+git add .
+git commit -m "message"
+git pull
+git push
+git branch
+git checkout branch-name
+git merge branch-name
+git log --oneline
+```
