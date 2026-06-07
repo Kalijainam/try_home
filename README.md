@@ -1,287 +1,299 @@
-Here's every Git command you'll actually use, grouped by category.
+====================================================
+GIT COMMANDS CHEAT SHEET (WINDOWS CMD)
+====================================================
 
----
+---------------------------
+1. INITIAL SETUP
+---------------------------
 
-## Setup
-```bash
+Check Git Version:
+git --version
+
+Set Username:
 git config --global user.name "Your Name"
-# Sets your name for all commits on this machine
 
-git config --global user.email "you@example.com"
-# Sets your email for all commits
+Set Email:
+git config --global user.email "your@email.com"
 
+View Configuration:
 git config --list
-# Shows all your current git configuration
-```
 
----
+---------------------------
+2. CREATE REPOSITORY
+---------------------------
 
-## Starting a Repo
-```bash
+Initialize Git:
 git init
-# Creates a new empty git repo in current folder
 
+Clone Existing Repository:
+git clone <repository-url>
+
+Example:
 git clone https://github.com/user/repo.git
-# Downloads an existing GitHub repo to your machine
 
-git remote add origin <url>
-# Links your local repo to a remote GitHub repo
+---------------------------
+3. CHECK STATUS
+---------------------------
 
-git remote -v
-# Shows which remote URLs are connected to your repo
-
-git remote remove origin
-# Removes the remote connection
-```
-
----
-
-## Staging & Committing
-```bash
+Check Repository Status:
 git status
-# Shows which files are modified, staged, or untracked
 
-git add .
-# Stages all changed files
-
-git add filename.txt
-# Stages one specific file
-
-git add folder/
-# Stages everything inside a specific folder
-
-git commit -m "your message"
-# Saves staged files as a snapshot with a message
-
-git commit --amend -m "new message"
-# Edits the last commit message (only if not pushed yet)
-
-git diff
-# Shows exactly what changed in unstaged files line by line
-
-git diff --staged
-# Shows what changed in staged files before committing
-```
-
----
-
-## Push & Pull
-```bash
-git push origin main
-# Uploads local commits to GitHub on main branch
-
-git push origin feature/login
-# Pushes a specific branch to GitHub
-
-git push -u origin main
-# Pushes and sets default upstream so future pushes just need git push
-
-git push --force
-# Force pushes — overwrites remote history. Dangerous in teams
-
-git pull origin main
-# Fetches + merges latest changes from GitHub into your local branch
-
-git fetch origin
-# Downloads changes from GitHub but does NOT merge them yet
-
-git fetch --all
-# Fetches from all remotes
-```
-
----
-
-## Branching
-```bash
-git branch
-# Lists all local branches
-
-git branch -a
-# Lists all branches including remote ones
-
-git branch feature/login
-# Creates a new branch but stays on current one
-
-git checkout -b feature/login
-# Creates AND switches to new branch in one command
-
-git checkout main
-# Switches to main branch
-
-git switch feature/login
-# Modern way to switch branches (same as checkout)
-
-git switch -c feature/login
-# Modern way to create and switch (same as checkout -b)
-
-git branch -d feature/login
-# Deletes a branch locally (safe — only if merged)
-
-git branch -D feature/login
-# Force deletes a branch locally even if not merged
-
-git push origin --delete feature/login
-# Deletes the branch from GitHub
-```
-
----
-
-## Merging
-```bash
-git merge feature/login
-# Merges specified branch into your current branch
-
-git merge --abort
-# Cancels a merge in progress if there are conflicts
-
-git merge --no-ff feature/login
-# Merges but always creates a merge commit even if fast-forward is possible
-```
-
----
-
-## Stashing
-```bash
-git stash
-# Temporarily saves uncommitted changes and cleans your working directory
-
-git stash pop
-# Brings back your stashed changes and removes the stash
-
-git stash list
-# Shows all saved stashes
-
-git stash apply stash@{0}
-# Applies a specific stash without removing it from list
-
-git stash drop stash@{0}
-# Deletes a specific stash
-
-git stash clear
-# Deletes all stashes
-```
-
----
-
-## Viewing History
-```bash
+View Commit History:
 git log
-# Full commit history with author, date, message
 
+Compact Log:
 git log --oneline
-# Compact history — one line per commit with short hash
 
-git log --oneline --graph
-# Visual branch and merge history in terminal
+Graph View:
+git log --oneline --graph --all
 
-git log --oneline -5
-# Shows only last 5 commits
+---------------------------
+4. ADD FILES
+---------------------------
 
-git show abc1234
-# Shows full details of a specific commit
-```
+Add Specific File:
+git add filename.txt
 
----
+Add Multiple Files:
+git add file1.txt file2.txt
 
-## Rollback & Undoing
-```bash
-git reset --soft HEAD~1
-# Undoes last commit, keeps changes staged
+Add All Files:
+git add .
 
-git reset --mixed HEAD~1
-# Undoes last commit, keeps changes but unstages them (default)
+---------------------------
+5. COMMIT CHANGES
+---------------------------
 
-git reset --hard HEAD~1
-# Undoes last commit and deletes changes permanently
+Commit Changes:
+git commit -m "Commit message"
 
-git revert HEAD
-# Creates a new commit that undoes the last commit — safe after pushing
+Add and Commit Tracked Files:
+git commit -am "Commit message"
 
-git revert abc1234
-# Reverts a specific commit by hash
+---------------------------
+6. REMOTE REPOSITORY
+---------------------------
 
+Add Remote:
+git remote add origin <repository-url>
+
+View Remote:
+git remote -v
+
+Change Remote URL:
+git remote set-url origin <new-url>
+
+Remove Remote:
+git remote remove origin
+
+---------------------------
+7. PUSH CHANGES
+---------------------------
+
+First Push:
+git push -u origin main
+
+Push Changes:
+git push
+
+Push Specific Branch:
+git push origin branch-name
+
+Force Push:
+git push --force
+
+---------------------------
+8. PULL CHANGES
+---------------------------
+
+Pull Latest Changes:
+git pull
+
+Pull Specific Branch:
+git pull origin main
+
+Fetch Without Merge:
+git fetch
+
+---------------------------
+9. BRANCH COMMANDS
+---------------------------
+
+View Branches:
+git branch
+
+View Remote Branches:
+git branch -r
+
+View All Branches:
+git branch -a
+
+Create Branch:
+git branch branch-name
+
+Switch Branch:
+git checkout branch-name
+
+Create and Switch:
+git checkout -b branch-name
+
+(New Method)
+git switch branch-name
+
+Create and Switch:
+git switch -c branch-name
+
+Rename Branch:
+git branch -m new-branch-name
+
+Delete Branch:
+git branch -d branch-name
+
+Force Delete Branch:
+git branch -D branch-name
+
+---------------------------
+10. MERGE BRANCHES
+---------------------------
+
+Switch to Target Branch:
+git checkout main
+
+Merge Branch:
+git merge branch-name
+
+Abort Merge:
+git merge --abort
+
+---------------------------
+11. STASH
+---------------------------
+
+Save Changes:
+git stash
+
+View Stashes:
+git stash list
+
+Apply Latest Stash:
+git stash apply
+
+Apply and Remove:
+git stash pop
+
+Delete Stash:
+git stash drop
+
+---------------------------
+12. UNDO CHANGES
+---------------------------
+
+Discard Changes in File:
+git checkout -- filename.txt
+
+Restore File:
 git restore filename.txt
-# Discards changes in a file back to last commit state
 
+Restore All Files:
+git restore .
+
+Unstage File:
 git restore --staged filename.txt
-# Unstages a file without losing changes
 
-git clean -fd
-# Deletes all untracked files and folders permanently
-```
+Reset Last Commit (Keep Changes):
+git reset --soft HEAD~1
 
----
+Reset Last Commit (Delete Changes):
+git reset --hard HEAD~1
 
-## Tagging
-```bash
+---------------------------
+13. TAGS
+---------------------------
+
+Create Tag:
 git tag v1.0
-# Creates a lightweight tag on current commit
 
-git tag -a v1.0 -m "version 1.0"
-# Creates an annotated tag with a message
-
-git push origin v1.0
-# Pushes a specific tag to GitHub
-
-git push origin --tags
-# Pushes all tags to GitHub
-
+List Tags:
 git tag
-# Lists all tags
-```
 
----
+Push Tag:
+git push origin v1.0
 
-## Rebasing
-```bash
-git rebase main
-# Moves your branch commits on top of main — cleaner history than merge
+Push All Tags:
+git push --tags
 
-git rebase --abort
-# Cancels a rebase in progress
+---------------------------
+14. DELETE REMOTE BRANCH
+---------------------------
 
-git rebase --continue
-# Continues rebase after resolving conflicts
+git push origin --delete branch-name
 
-git rebase -i HEAD~3
-# Interactive rebase — lets you edit, squash, or reorder last 3 commits
-```
+---------------------------
+15. VIEW DIFFERENCES
+---------------------------
 
----
+View Changes:
+git diff
 
-## Useful Extras
-```bash
-git shortlog -sn
-# Shows commit count per author
+View Staged Changes:
+git diff --staged
 
-git blame filename.txt
-# Shows who wrote each line of a file and when
+Compare Branches:
+git diff branch1..branch2
 
-git bisect start
-# Starts binary search to find which commit introduced a bug
+---------------------------
+16. CLEAN UNTRACKED FILES
+---------------------------
 
-git cherry-pick abc1234
-# Copies a specific commit from another branch into current branch
-# gsk   _    3BS    ocngEj4HhLR39nQjhWGdyb3FYpVMjJHIy7clKI5zJWZvW8eOZ
-```
+Preview:
+git clean -n
 
----
+Delete Files:
+git clean -f
 
-## Quick Reference Cheat Sheet
+Delete Files and Folders:
+git clean -fd
 
-| Category | Key Commands |
-|---|---|
-| Setup | config, init, clone |
-| Tracking | add, commit, status, diff |
-| Remote | push, pull, fetch, remote |
-| Branches | checkout -b, merge, branch -d |
-| Undo | reset, revert, restore |
-| Stash | stash, stash pop |
-| History | log, show, blame |
-| Advanced | rebase, cherry-pick, bisect |
+---------------------------
+17. COMMON WORKFLOW
+---------------------------
 
----
+1. Pull latest code
+git pull origin main
 
-That's the full toolkit. Master the first four categories first — that's 90% of daily Git work. Rebase and cherry-pick come later when you're comfortable.
+2. Create branch
+git checkout -b feature-login
 
-git config --global user.email "your_email@example.com"
+3. Make changes
+
+4. Add files
+git add .
+
+5. Commit
+git commit -m "Added login feature"
+
+6. Push branch
+git push -u origin feature-login
+
+7. Merge after approval
+git checkout main
+git pull
+git merge feature-login
+
+8. Push merged code
+git push origin main
+
+---------------------------
+18. GITHUB FIRST TIME PUSH
+---------------------------
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <repository-url>
+git push -u origin main
+
+====================================================
+END OF GIT CHEAT SHEET
+====================================================
